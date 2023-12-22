@@ -1,0 +1,15 @@
+extends layout
+
+block contenido
+    section.Contacto
+        h2 Restablecer Contraseña
+        .CrearCuenta 
+            form(action="/restablecer" method="POST" class="default-form") 
+                div.Campo 
+                    label(for="Email") Email:
+                    input(type="Email" name="Email" placeholder="Tu Email")
+                .Campo.left 
+                     button.Boton(name='BtnCrears' type='submit' value='Crear Cuenta')
+                        span Restablecer
+                .Campo.Acciones
+                    a(href="/iniciar-sesion") ¿Haz recordado tu contraseña? Vuelve a iniciar sesion.

@@ -1,0 +1,24 @@
+extends layout
+
+block contenido
+    section.Contacto
+        h2 Crea Tu Cuenta
+        .CrearCuenta 
+            form(action="/crear-cuenta" method="POST" class="default-form")
+                .InformacionContacto
+                    h3.TipoDeFormulario Informacion de Contacto
+                    div.Campo
+                        label Nombre: 
+                        input(type="text" name="Nombre" placeholder="Tu Nombre")
+                    div.Campo 
+                        label(for="Email") Email:
+                        input(type="Email" name="Email" placeholder="Tu Email")
+                    div.Campo 
+                        label(for="Contraseña") Contraseña:
+                        input(type="password" name="Contraseña" placeholder="Tu Contraseña")
+
+                .Campo.left 
+                     button.Boton(name='BtnCrears' type='submit' value='Crear Cuenta')
+                        span Crear  Cuenta
+                .Campo.Acciones 
+                    a(href="/iniciar-sesion") Volver a Iniciar Secion 

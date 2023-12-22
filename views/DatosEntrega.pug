@@ -1,0 +1,63 @@
+extends layout
+
+block contenido
+    section.DatosEntrega
+        .DatosComprador 
+            h2 Datos Comprador
+            .Datos 
+                form(action="/Direcciones/Agregar" method="POST" class="default-form") 
+                    div.Campo 
+                        label(for="Nombre") Nombre:
+                        input(type="text" name="Nombre" placeholder="Tu Nombre" value=`${Nombre}`)
+                    div.Campo 
+                        label(for="Email") Email:
+                        input(type="email" name="Email" placeholder="Tu Email" value=`${Email}`  disabled) 
+        .DatosdeEntrega
+            h2 Direccion De Entrega
+            .DatosEntrega 
+                form#Form( method="POST" class="default-form") 
+                    if(Direcciones.length == 0)
+                        a.DireccionVacia(href="/Direcciones/Agregar")
+                            P Agrege una direccion y luego continue 
+                    else 
+                        select(class="DireccionValor" )
+                            option(selected disabled) Seleccione Domicilio de Entrega
+                            each Direccion in Direcciones
+                                option(value=`${Direccion.id}` )=Direccion.Direccion 
+                            option(value="Agregar" class="DireccionAgregar") Agregar Nueva Direccion  
+                    div.Campo 
+                        label(for="Nombre") Nombre:
+                        input(disabled class="Nombre" type="text" name="Nombre" placeholder="Tu Nombre" value=``)
+                    div.Campo 
+                        label(for="Apellido") Apellido:
+                        input(disabled class="Apellido" type="text" name="Apellido" placeholder="Tu Apellido")
+                    div.Campo 
+                        label(for="Telefono") Telefono:
+                        input(disabled class="Telefono" type="text" name="Telefono" placeholder="Tu Telefono")
+                    div.Campo 
+                        label(for="Direccion") Direccion:
+                        input(disabled ype="text" class="Calle" name="Direccion" placeholder="Tu Direccion")
+                    div.Campo 
+                        label(for="Numeracion") Numeracion:
+                        input(disabled ype="text" class="Numeracion" name="Numeracion" placeholder="Tu Numeracion")
+                    div.Campo 
+                        label(for="Ciudad") Ciudad:
+                        input(disabled ype="text" class="Ciudad" name="Ciudad" placeholder="Tu Ciudad")
+                    div.Campo 
+                        label(for="Provincia") Provincia:
+                        input(disabled ype="text" class="Provincia" name="Provincia" placeholder="Tu Provincia")
+                    div.Campo 
+                        label Codigo Postal:
+                        input(disabled ype="text" class="CP" name="CodigoPostal" placeholder="Tu Codigo Postal")
+
+                    
+        .DireccionAcc.AccionesCarrito
+            a(href="/carrito" ) 
+                button.Boton
+                    span Regresar al Carrito
+            a(href="" id="BtnSiguiente") 
+                button.Boton
+                    span Elegir Tipo de Envio
+
+                    
+                        

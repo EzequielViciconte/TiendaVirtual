@@ -1,0 +1,45 @@
+extends layout
+
+block contenido
+    section.FinalizarCompra
+        h2 Tu Carrito
+        .ContenedorDatosCompra 
+            table.TablaCarrito.Contenedor
+                thead
+                    tr
+                    th.CartImg Imagen
+                    th Titulo
+                    th Precio
+                    th.CartCant Cantidad
+                    th
+                    th Total
+                tbody
+                
+                tfoot
+                    tr
+                    td.SubtotalCar(align='right' colspan='5')
+                        h3 Total
+                    td#Total.SubtotalCar(align='right')
+                        h3 $0
+                    td
+
+    
+            .DireccionDatos 
+                h2 Tu datos de Facturacion
+                table.TablaDireccion.Contenedor
+                    thead
+                        tr
+                        th.CartImg Nombre
+                        th Telefono
+                        th Direccion
+                        th Ciudad
+                        th Codigo Postal
+                    tbody
+
+                
+    .AccionesCarrito
+        form(action="/checkout" method="POST" class="FormularioCompra")
+            button.Boton#Comprar(type='submit') 
+                span Pagar con MercadoPago 
+
+        

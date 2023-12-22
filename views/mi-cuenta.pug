@@ -1,0 +1,22 @@
+extends layout 
+
+block contenido 
+    section.MiCuenta 
+        h2 Mi Cuenta 
+
+        .OpcionesCuenta 
+            a(href="/mis-datos")
+                .Opcion 
+                    .Icono 
+                        i(class="fa-solid fa-user")
+                    .Texto 
+                        span Mis Datos 
+                        span.DatosMas Configura tus datos personales 
+            a(href="/direcciones")
+                .Opcion 
+                    .Icono 
+                        i(class="fa-solid fa-location-dot")
+                    .Texto 
+                        span Direcciones 
+                        span.DatosMas Configura tus Direcciones 
+                    

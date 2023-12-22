@@ -1,0 +1,50 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        link(rel="stylesheet", href="/css/style.css")
+        link(rel="stylesheet", href="/css/all.min.css")
+        link(href='https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap' rel='stylesheet')
+        link(href='https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap' rel='stylesheet')
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Tienda Virtual
+
+    header.Header
+        div(class=Pagina == 'Index' ? 'Index ContenedorHeader': '')
+            .Barra.BarraInicio 
+                a(href="/")
+                    h1 NombreTienda
+                nav.MenuNavegacion
+                    if(locals.usuario._id)
+                        include partials/nav-autenticado.pug
+                    else 
+                        include partials/nav-noautenticado.pug
+
+                    li.liMenu 
+                        a.menuLink.BtnCarrito(href="#")
+                            i.BotonCarrito.fa.fa-shopping-cart 
+                                span.CantidadProductos 0
+            .Carrito
+                i.fa.fa-circle-xmark.CerrarCarrito 
+                .CarritoContenido.CarritoDiv 
+                .CarritoTotal 
+                    p.SubTotal Subtotal $0
+                .VerCarritoDiv 
+                    a.verCarrito(href="/carrito") Ver Carrito
+            if(Pagina == 'Index')            
+                h1.Titulo Los mejores Celulares Barato!!
+
+    if(locals.mensajes)
+        .Alertas
+            each Categoria in Object.keys(locals.mensajes)
+                each alerta in locals.mensajes[Categoria]
+                    .alerta(class=Categoria)
+                        p= alerta 
+    
+    body 
+        block contenido
+
+    footer 
+        p Todos los derechos reservados a Ezequiel Viciconte
+    script(src=("/dist/bundle.js"))

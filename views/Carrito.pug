@@ -1,0 +1,29 @@
+extends  layout
+
+block contenido
+    section.Carrito 
+    h2  Tu Carrito 
+        
+    table.TablaCarrito.Contenedor 
+        thead 
+            tr 
+            th.CartImg Imagen
+            th Titulo 
+            th Precio 
+            th.CartCant Cantidad
+            th.Total
+        tbody 
+        tfoot 
+            tr 
+            td.SubtotalCar(align='right' colspan='5')
+                h3 Total
+            td#Total.SubtotalCar(align='right')
+                h3  $0
+    .AccionesCarrito
+        a(href="/Tienda")
+            button.Boton
+                span Seguir Comprando 
+        a(href="/datos-compra")
+            button.Boton
+                span Ir a datos Cliente
+                

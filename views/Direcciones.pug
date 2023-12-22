@@ -1,0 +1,40 @@
+extends layout 
+
+
+block contenido 
+    section.MiCuenta 
+        h2 Mis Direcciones 
+        
+        .Direcciones 
+            if(direcciones.length)
+                each Direccion in direcciones
+                    .divDireccion 
+                        .TextoDireccion 
+                            .IconoDir
+                                i(class="fa-solid fa-house")
+                        .Texto 
+                            p.Calle= `${Direccion.Direccion} ${Direccion.Numeracion} `
+                            .TextoAbajo 
+                                p= `Codigo Postal ${Direccion.CodigoPostal} - ${Direccion.Provincia} - ${Direccion.Ciudad} `
+                                p= `${Direccion.Nombre} ${Direccion.Apellido} ${Direccion.Telefono} `
+                        .BtnDireccionMenu 
+                            i(class="fa-solid fa-ellipsis-vertical BotonMenDireccion")
+                            .BtnDireccion.Invisible 
+                                a(href=`/Direcciones/Editar/${Direccion._id}`)
+                                    button.Boton(name="Editar" type="submit" value="Editar")
+                                        span Editar 
+                                a(href="#" )
+                                    button.Boton(name="Eliminar" id="BtnEliminar" data-id=`${Direccion._id}`  type="submit" value="Eliminar")
+                                        span Eliminar 
+                .divAgregar 
+                    a(href="/Direcciones/Agregar")
+                        button.Boton
+                            span Agregar Direccion   
+            else 
+                p.DireccionH3 No tiene ninguna Direccion agregada 
+                .left.Campo 
+                    a(href="/Direcciones/Agregar")
+                        button.Boton
+                            span Agregar Direccion 
+
+

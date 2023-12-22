@@ -1,0 +1,16 @@
+extends layout 
+
+block contenido
+    section.MiCuenta 
+        h2  Mis Datos
+        form.default-form(method="POST")
+            div.Campo 
+                label(for="Nombre") Nombre:
+                input(type="text" name="Nombre" placeholder="Indica el nombre de la tarta" value=`${usuario.Nombre}` ) 
+            div.Campo 
+                label(for="text") Email:
+                input(type="text" name="Email" placeholder="Email" value=`${usuario.Email}`)
+            
+            .Campo.left 
+                    button.Boton(name='BtnCrears' type='submit' value='Actualizar Datos')
+                        span Actualizar Datos

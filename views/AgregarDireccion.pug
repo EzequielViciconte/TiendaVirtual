@@ -1,0 +1,36 @@
+extends layout
+
+block contenido
+    section.Contacto
+        h2 Agregar Direccion
+        .CrearCuenta 
+            form(action="/Direcciones/Agregar" method="POST" class="default-form") 
+                div.Campo 
+                    label(for="Nombre") Nombre:
+                    input(type="text" name="Nombre" placeholder="Tu Nombre")
+                div.Campo 
+                    label(for="Apellido") Apellido:
+                    input(type="text" name="Apellido" placeholder="Tu Apellido")
+                div.Campo 
+                    label(for="Telefono") Telefono:
+                    input(type="text" name="Telefono" placeholder="Tu Telefono")
+                div.Campo 
+                    label(for="Direccion") Direccion:
+                    input(type="text" name="Direccion" placeholder="Tu Direccion")
+                div.Campo 
+                    label(for="Numeracion") Numeracion:
+                    input(type="text" name="Numeracion" placeholder="Tu Numeracion")
+                div.Campo 
+                    label(for="Ciudad") Ciudad:
+                    input(type="text" name="Ciudad" placeholder="Tu Ciudad")
+                div.Campo 
+                    label(for="Provincia") Provincia:
+                    input(type="text" name="Provincia" placeholder="Tu Provincia")
+                div.Campo 
+                    label Codigo Postal:
+                    input(type="text" name="CodigoPostal" placeholder="Tu Codigo Postal")
+
+                    input(type="hidden" name="UsuarioId" value=`${usuarioId}`)
+                .Campo.left 
+                     button.Boton(name='BtnCrears' type='submit' value='Crear Cuenta')
+                        span Agregar Direccion

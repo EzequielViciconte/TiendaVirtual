@@ -1,0 +1,31 @@
+extends layout
+
+
+block contenido
+    section.DatosEntrega
+        .DatosComprador 
+            h2 Datos Comprador
+            .Datos 
+                form(action="/Direcciones/Agregar" method="POST" class="default-form") 
+                    div.Campo.Envio    
+                        input(type="radio" class="Radio" name="Envio" value="1" )
+                        .Informacion
+                            label(for="Nombre") Retiro en Local
+                            p.PEnvio El pedido estara listo 48 horas luego que se halla completado el pedido!!
+                    div.Campo.Envio
+                        input(type="radio" class="Radio" name="Envio" value="2")
+                        .Informacion
+                            label(for="Email") Envio a Domicilio
+                            p.PEnvio Recuerde que los envios son gratis en Buenos Aires,Fuera de esta zona debera retirar por el local
+
+        .DireccionAcc.AccionesCarrito
+            a(href="/carrito" ) 
+                button.Boton
+                    span Regresar al Carrito
+            a(href="" id="BtnCaja") 
+                button.Boton
+                    span Ir a Caja
+
+
+                    
+                        
